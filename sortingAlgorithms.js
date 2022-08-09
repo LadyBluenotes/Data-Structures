@@ -221,5 +221,58 @@ let arr = [4,6,7,2,8,1,3,9,5];
 console.log(quickSort(arr, 0, arr.length - 1)) // [1,2,3,4,5,6,7,8,9]
 
 
+// Heap sort - time O(n log n), space O(1)
 
+function heapSort(arr){
+    // initilize n as the length of the array
+    let n = arr.length;
 
+    //rearrange array or build heap
+    for (let i = Math.floor(n / 2); i >= 0; i--) {
+        // call heapify function to rearrange array
+        heapify(arr, heapSize, i);
+    }
+
+    //one by one extract an element from heap
+    for (let i = n-1; i > 0; i--) {
+        // move current root to the end
+        let temp = arr[0];
+        arr[0] = arr[i];
+        arr[i] = temp;
+
+        // call heapify on the reduced heap
+        heapify(arr, i, 0);
+    }
+}
+
+// to heapify a subtree rooted with node i which is an index in arr[], n is size of heap
+function heapify(arr, n, i) {
+    // initalize largest as root
+    let largest = i;
+    // initialize left and right as the index of the left and right children of the root
+    let left = 2 * i + 1;
+    let right = 2 * i + 2;
+
+    // if left child is larger than root, then set largest to left child
+    if (left < n && arr[left] > arr[largest]) {
+        largest = left;
+    }
+
+    // if right child is larger than largest, then set largest to right child
+    if (right < n && arr[right] > arr[largest]) {
+        largest = right;
+    }
+
+    // if largest is not root, then swap the largest with root
+    if (largest != i) {
+        let swap = arr[i];
+        arr[i] = arr[largest];
+        arr[largest] = swap;
+
+        // recursively call heapify on the subtree rooted with largest
+        heapify(arr, n, largest);
+    }   
+}
+
+// Test the heap sort function
+console.log(heapSort([5,-7,2,-9,5,1,8])) // [-9,-7,1,2,5,5,8]
