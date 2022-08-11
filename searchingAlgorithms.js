@@ -39,3 +39,15 @@ function binarySearch(arr, target) {
     // if the target is not found, then return -1
     return -1;
 }
+
+// Breadth first search - O(n)
+
+function breadthFirstSearch(arr, target) {
+    
+}
+
+// Depth first search - O(n)
+
+function depthFirstSearch(arr, target) {
+
+}
