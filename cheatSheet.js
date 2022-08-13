@@ -158,8 +158,7 @@ myStack[myStack.length-1] // shows last value
 
 // HashTable - Access O(n); Search O(n); Insertion O(n); Deletion O(n)
 
-const hashTable = new Map(); // can also create using classe
-const hashSet = new Set(); // only holds keys no values
+const hashTable = new Map(); // can also create using class
 
 hashTable.set('key', 'value')
 let getKey = hashTable.get('key') // returns key
@@ -172,7 +171,30 @@ let getAllValues = hashTable.values() // returns all values
 hashTable.delete('key') // removes key
 hashTable.clear() // deletes all items
 
+const setTable = new Set(); // only holds unique keys no value
+
+
+
 // Graph
+
+// Adjacency List (better for space and time)
+
+const adjacencyList = new Map();
+
+function addNode(vertex){
+  // adds vertex to list with empty array 
+  adjacencyList.set(vertex, [])
+}
+
+function addEdge(start,end){
+  // get the starting node and push the ending node onto their array
+  adjacencyList.get(start).push(end);
+  adjacencyList.get(end).push(start);
+}
+
+//to create graph
+dataPoints.forEach(addNode) //creates initial vertices
+connections.forEach(connection => addEdge(...connection)) // for vertex add connections and use spread operator to expand connections
 
 
 // Tree
@@ -199,7 +221,7 @@ function binarySearch(arr, target){
 let first = 0;
 let last = arr.length - 1;
 while (first <= last) {
-    let mid = start + Math.floor((last - first) / 2);
+    let mid = first + Math.floor((last - first) / 2);
     if (arr[mid] === target) {
         return mid;
     } else {
@@ -213,9 +235,37 @@ while (first <= last) {
 return -1;
 }
 
-// Depth First Search
+// Depth First Search - 
 
-// Breadth First Search
+
+
+// Breadth First Search - determines shortest path; transverses graph in fewest iterations
+
+function bfs(searchValue){
+  const visited = new Set(); // set bc we don't need key value pairs
+
+  const queue = [searchValue];
+
+  while (queue.length > 0){
+    const key = queue.shift() // remove nodes from queue;
+    const children = adjacencyList.get(key) // find children of node
+
+    for (let child of children){
+      if(child === 'target'){
+        // do something
+        console.log('found')
+      }
+
+      // enqueue if it is not in visited
+      if(!visited.has(child)){
+        //add to visited
+        visited.add(child);
+        //add to queue
+        queue.push(child)
+      }
+    }
+  }
+}
 
 
 
