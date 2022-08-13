@@ -171,6 +171,87 @@ let getAllValues = hashTable.values() // returns all values
 hashTable.delete('key') // removes key
 hashTable.clear() // deletes all items
 
+// Class HashTable
+
+class HashTable {
+  constructor(){
+    this.table = new Array(127); // creates a table with 127 buckets
+    this.size = 0;
+  }
+
+  _hash(key){
+    let hash = 0; 
+    for (let i = 0; i < key.length; i++){
+      hash += key.charCodeat(i);
+    }
+    return hash % this.table.length; // get how many buckets are available
+  }
+
+  set(key,value){
+    const index = this._hash;
+    //handle collision
+    if(this.table[index]){
+      for(let i = 0; i < this.table[index].length; i++){
+        // find key/value pair in chain
+        if(this.table[index][i][0]===key){
+          this.table[index][i][1] = value;
+          return
+        }
+      }
+      // if not found, push new keyvalue pair
+      this.table[index].push([key,value]);
+    } else {
+      // if nothing at index, create new array and push value
+      this.table[index] = [];
+      this.table[index].push([key,value])
+    }
+    this.size++
+  }
+
+  get(key){
+    const index = this._hash(key);
+    // check second level
+    if(this.table[target]){
+      // loop through second array to find key that matches
+      for (let i =0; i < this.table.length; i++){
+        if (this.table[target][i][0] === key){
+          return this.table[target][i][1]
+        }
+      }
+    }
+    return undefined // if not found
+  }
+
+  remove(key){
+    const index = this._hash(key);
+    // check second-level array
+    if (this.table[index] && this.table[index].length) {
+      //loop through to find key to remove
+      for (let i = 0; i < this.table.length; i++) {
+        if (this.table[index][i][0] === key) {
+          this.table[index].splice(i, 1);
+          this.size--;
+          return true;
+        }
+      }
+    } else {
+      // false if not found
+      return false;
+    }
+}
+
+display(){
+  // show all key/value pairs in hashTable
+  this.table.forEach((values,index) =>{
+    const chainedValues = values.map(([key,value]) => `[${key}, ${value}]`);
+    console.log(`[${key}, ${value}]`);
+  })
+}
+
+}
+
+
+
 const setTable = new Set(); // only holds unique keys no value
 
 
