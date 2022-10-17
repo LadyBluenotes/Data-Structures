@@ -12,142 +12,57 @@ arr.filter(x => x > 1);
 // Linked List - Access O(n); Search O(n); Insert O(1); Delete O(1)
 
 class Node{
-  constructor(element){
-    this.element = element;
-    this.next = null;
-  }
-}
-
-class LinkedList{
-  constructor(){
-    this.head = null;
-    this.size = 0;
-  }
-
-  add(element){
-    let node = new Node(element);
-    let current;
-    this.size++;
-
-    if(this.head === null){
-      this.head = node;
-    } else {
-      current = this.head;
-      while(current.next){
-        current = current.next;
-      }
-      current.next = node;
-    }
-  }
-
-  insertAt(element,index){
-    if(index < 0 || index > this.size){
-      return console.log('Enter Valid Index');
-    } else {
-      let node = new Node(element);
-      let current;
-      let previous;
-      current = this.head;
-      if(index === 0){
-        node.next = this.head;
-        this.head = node;
-      } else {
-        current = this.head;
-        let iterate = 0;
-
-        while (iterate < index){
-          iterate++;
-          previous = current;
-          current = current.next;
-        }
-        node.next = current;
-        previous.next = node;
-      }
-      this.size++;
+    // to add a node
+    constructor(data){
+      this.data = data;
+      this.next = null;
     }
   }
   
-  removeAt(index){
-    if(index < 0 || index >= this.size){
-      return console.log('Please enter valid index')
-    } else {
-      let current;
-      let previous;
-      let iterate = 0;
-      current = this.head;
-      previous = current;
-      current = current.next;
-      if(index === 0){
-        this.head = current.next;
-      }else {
-        while(iterate < index){
-          iterate++;
-          previous = current;
-          current = current.next;
-        }
-        previous.next = current.next;
-      }
-      this.size--;
-      return current.element;
+  class LinkedList{
+    // to make the list 
+    constructor(){
+      this.length = 0;
+      this.head = null;
+      this.tail = null;
     }
-  }
-
-  removeSelected(selected){
-    let current = this.head;
-    let previous = null;
-    while(current!=null){
-      if(current.element === selected){
-        if (previous === null){
-          this.head = current.next;
-        } else {
-          previous.next = current.next;
-        }
-        this.size--;
-        return current.element;
+    
+    print(head){
+      let current = head;
+      while (current !== null){
+        console.log(current.data)
+        current = current.next;
       }
-      previous = current;
-      current = current.next;
+
+      //recursion
+
+      if (head === null) return;
+      console.log(head.data)
+      printLinkedList(head.next);
     }
-    return -1;
+
+    
+    
   }
-
-  isEmpty(){
-    return this.size === 0;
-  }
-
-      printList(){
-      let current = this.head;
-      let str = "";
-      while (current) {
-          str += current.element + " ";
-          current = current.next;
-      }
-      console.log(str);
-    }
-}
-
-
   
 
 // Queue - Access O(n); Search O(n); Insert O(1); Delete O(1)
 
-const myQueue = [];
+const myQueue = []; // can use this but better to use class
 
-const enqueue = myQueue.push('value')
-const dequeue = myQueue.shift()
-const peek = myQueue[0]
-const getLength = myQueue.length
-
+const enqueue = myQueue.push('value') // add to end of queue
+const dequeue = myQueue.shift() // remove from front
+const peek = myQueue[0] // see first item
+const getLength = myQueue.length //length of queue
 
 // Stack - Access O(n); Search O(n); Insert O(1); Delete O(1)
 
-const myStack = [1,2,4,5,6];
+const myStack = [1,2,4,5,6]; // can use this but better to use class
 
-myStack.push('value')
-myStack.pop()
-myStack.length
-myStack[myStack.length-1]
-
+myStack.push('value') // puts value on end of stack
+myStack.pop() // removes last value
+myStack.length // gets length of stack
+myStack[myStack.length-1] // shows last value
 
 // HashTable - Access O(n); Search O(n); Insertion O(n); Deletion O(n)
 // Avg case O(1)
@@ -155,21 +70,21 @@ myStack[myStack.length-1]
 const hashTable = new Map(); // can also create using class
 
 hashTable.set('key', 'value')
-let getKey = hashTable.get('key')
-let hasKey = hashTable.has('key')
-let sizeTable = hashTable.size
-let entriesInTable = hashTable.entries()
-let getAllKeys = hashTable.keys()
-let getAllValues = hashTable.values()
+let getKey = hashTable.get('key') // returns key
+let hasKey = hashTable.has('key') // returns boolean
+let sizeTable = hashTable.size // returns number of keys
+let entriesInTable = hashTable.entries() // returns all entries
+let getAllKeys = hashTable.keys() // returns all keys
+let getAllValues = hashTable.values() // returns all values
 
-hashTable.delete('key')
-hashTable.clear()
+hashTable.delete('key') // removes key
+hashTable.clear() // deletes all items
 
 // Class HashTable
 
 class HashTable {
   constructor(){
-    this.table = new Array();
+    this.table = new Array(127); // creates a table with 127 buckets
     this.size = 0;
   }
 
@@ -178,20 +93,24 @@ class HashTable {
     for (let i = 0; i < key.length; i++){
       hash += key.charCodeat(i);
     }
-    return hash % this.table.length;
+    return hash % this.table.length; // get how many buckets are available
   }
 
   set(key,value){
-    const index = this._hash(key);
+    const index = this._hash;
+    //handle collision
     if(this.table[index]){
       for(let i = 0; i < this.table[index].length; i++){
+        // find key/value pair in chain
         if(this.table[index][i][0]===key){
           this.table[index][i][1] = value;
           return
         }
       }
+      // if not found, push new keyvalue pair
       this.table[index].push([key,value]);
     } else {
+      // if nothing at index, create new array and push value
       this.table[index] = [];
       this.table[index].push([key,value])
     }
@@ -199,20 +118,24 @@ class HashTable {
   }
 
   get(key){
-    const target = this._hash(key);
+    const index = this._hash(key);
+    // check second level
     if(this.table[target]){
+      // loop through second array to find key that matches
       for (let i =0; i < this.table.length; i++){
         if (this.table[target][i][0] === key){
-          return this.table[target][i][1];
+          return this.table[target][i][1]
         }
       }
     }
-    return undefined;
+    return undefined // if not found
   }
 
   remove(key){
     const index = this._hash(key);
+    // check second-level array
     if (this.table[index] && this.table[index].length) {
+      //loop through to find key to remove
       for (let i = 0; i < this.table.length; i++) {
         if (this.table[index][i][0] === key) {
           this.table[index].splice(i, 1);
@@ -221,13 +144,20 @@ class HashTable {
         }
       }
     } else {
+      // false if not found
       return false;
     }
   }
+
+display(){
+  // show all key/value pairs in hashTable
+  this.table.forEach((values,index) =>{
+    const chainedValues = values.map(([key,value]) => `[${key}, ${value}]`);
+    console.log(`[${key}, ${value}]`);
+  })
 }
 
-
-
+}
 
 //Making a set
 const setTable = new Set(); // only holds unique keys no value
@@ -239,6 +169,7 @@ setTable.clear();
 setTable.forEach();
 setTable.keys();
 setTable.entries();
+setTable.size;
 
 
 // Graph
@@ -537,7 +468,7 @@ function insertionSort(arr) {
 
 // Heap Sort
 
-function heapSort(arr){
+unction heapSort(arr){
   // initilize n as the length of the array
   let n = arr.length;
 
