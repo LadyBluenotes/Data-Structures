@@ -468,7 +468,7 @@ function insertionSort(arr) {
 
 // Heap Sort
 
-unction heapSort(arr){
+function heapSort(arr){
   // initilize n as the length of the array
   let n = arr.length;
 
