@@ -77,3 +77,10 @@ let user = {
 - The need to handle complex data results in the creation of Abstract Data Types(ADT) which are designed to create logical descriptions of how data is viewed and the operations that can be carried out with them.
     - Data encapsulation: ADTs allow us to handle data more efficiently so that we worry more for what data represents and not how it is constructed.
         - Examples: Array, List, Queue, Set, Stack, Table, Tree, Vectors
+
+
+# Recursion
+- Programming technique whose intention is to reduce the problem into smaller instances of the same problem until it is completely solved.
+- Write a function that calls itself until solution is met.
+- Must have a terminal case that ends the recursion or the function will continue in an endless loop.
+- Continues to break down problem into smaller chunks until terminal case is reached which terminates the condition or else it will continue to re-execute the function on what is left.
