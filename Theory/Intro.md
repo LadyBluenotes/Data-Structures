@@ -84,3 +84,15 @@ let user = {
 - Write a function that calls itself until solution is met.
 - Must have a terminal case that ends the recursion or the function will continue in an endless loop.
 - Continues to break down problem into smaller chunks until terminal case is reached which terminates the condition or else it will continue to re-execute the function on what is left.
+
+# Functions
+- Named sections of code that perform a specific task.
+- May accept values as parameters used for internal computation.
+- When called, the values are passed into them at the time are known as arguments.
+
+# Regular Expression (ReGex)
+- Help us find patterns of characters / character combinations within strings.
+Help us do way more remarkable things (filter text, search, replace functionality, data validation, etc).
+- Usually defined within a pair of slashes ending - sometimes ending with letters.
+    - g = global search (will not start over from beginning but continue search from end of previous match)
+    - i = stands for case insensitive approach which makes the whole expression case-insensitive.
