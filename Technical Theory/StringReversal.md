@@ -1,6 +1,6 @@
 # String Reversal
 
-Most common algorithm with JS.
+Most common algorithm with JS. Given a string of text, write an algorithm that returns the text received in a reversed format.
 
 ## Algorithmic Thinking
 1. Function will receive one parameter (string to be reversed).

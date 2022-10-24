@@ -96,3 +96,6 @@ Help us do way more remarkable things (filter text, search, replace functionalit
 - Usually defined within a pair of slashes ending - sometimes ending with letters.
     - g = global search (will not start over from beginning but continue search from end of previous match)
     - i = stands for case insensitive approach which makes the whole expression case-insensitive.
+
+# Character Mapping
+- Objects come in handy - loop through text and add each character to a character map object as a key and the number of times it exists as a value.

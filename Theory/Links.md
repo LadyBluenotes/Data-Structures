@@ -12,3 +12,5 @@ Loops and Iterations - http://web.archive.org/web/20220104175429/https://develop
 
 Regular Expressions - http://web.archive.org/web/20220104175429/https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
 
+Looping through JS Objects - http://web.archive.org/web/20210919070232/https://zellwk.com/blog/looping-through-js-objects/
+

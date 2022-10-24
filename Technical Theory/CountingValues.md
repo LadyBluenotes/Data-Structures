@@ -1,5 +1,7 @@
 # Counting Vowels in a String of Text
 
+Given a string of text containing 0 or more vowels, count the number of vowels that can be found within the text.
+
 ## Algorithmic Thinking
 1. Write a function that receives a parameter (a string of any length would be passed as the argument)
 2. Within the function, one would have to go through the text and search for the occurrences of the values (a,e,i,o,u).
