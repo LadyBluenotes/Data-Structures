@@ -99,3 +99,11 @@ Help us do way more remarkable things (filter text, search, replace functionalit
 
 # Character Mapping
 - Objects come in handy - loop through text and add each character to a character map object as a key and the number of times it exists as a value.
+
+# Imperative Style Programming
+- Specifies how things get done, step-by-step.
+- Ex: when adding an array of numbers and returning the sum, you use a forloop that goes over each element and cumulatively adds each element to an accumulator until final sum is reached.
+
+# Declarative Style Programming
+- Allows you to specify what should be done rather than how (declare) and aren't concerned with how it gets done.
+- Ex: using .reduce() on the array to reduce every element to a final value by reducing the sum within the callback.
