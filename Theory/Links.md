@@ -14,3 +14,4 @@ Regular Expressions - http://web.archive.org/web/20220104175429/https://develope
 
 Looping through JS Objects - http://web.archive.org/web/20210919070232/https://zellwk.com/blog/looping-through-js-objects/
 
+LeetCode List for Patterns - https://leetcode.com/discuss/career/448285/List-of-questions-sorted-by-common-patterns
