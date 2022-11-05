@@ -110,6 +110,8 @@ Help us do way more remarkable things (filter text, search, replace functionalit
 
 # Queue
 - First in first out data structure.
+- Uses more memory than a stack as it needs to store pointers.
 
 # Stack
 - Last in first out data structure.
+- Does not keep track of nodes pointers therefore less memory intensive using a queue.
