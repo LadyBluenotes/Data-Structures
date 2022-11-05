@@ -107,3 +107,9 @@ Help us do way more remarkable things (filter text, search, replace functionalit
 # Declarative Style Programming
 - Allows you to specify what should be done rather than how (declare) and aren't concerned with how it gets done.
 - Ex: using .reduce() on the array to reduce every element to a final value by reducing the sum within the callback.
+
+# Queue
+- First in first out data structure.
+
+# Stack
+- Last in first out data structure.
